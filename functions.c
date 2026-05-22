@@ -7,10 +7,19 @@
 
 void echo (char * echo_string)
 {
-  printf("\n%s\n", echo_string);
+	printf("\n%s", echo_string);
 }
 
-void ls (char * filepath)
+void ls (char * fp)
 {
-  FILE 
+	FILE * filepath = fopen(fp, 'r');
+	
+	if (filepath == NULL)
+	{
+		printf("%s is not a valid file path!", fp);
+		// return OPERATION_FAILED was here origninally ; likely better to break; and then see if exit() could work differently
+		break;
+	}
+	
+	fclose(fp);
 }
