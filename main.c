@@ -8,15 +8,22 @@
 
 int main()
 {
-char TEXT_PLACEMENT[250] = "";
+char TEXT_PLACEMENT[512] = "";
+char buffer[1024] = "";
   
-while (strlen(TEXT_PLACEMENT) == 0)
+while (1)
   {
-    printf("user $");
+    printf("user $ ");
+    fgets();
     if (strcmp(TEXT_PLACEMENT, "exit TERMINAL"));
       break;
 
     TEXT_PLACEMENT = 0;
   }
-  return TERMINAL_EXIT;
+  exit(TERMINAL_EXIT);
 }
+
+/* NOTES / REVIEW
+https://pubs.opengroup.org/onlinepubs/009695399/functions/fopen.html
+https://web.eng.fiu.edu/watsonh/EEL2880/FileIO-HW.pdf
+*/
