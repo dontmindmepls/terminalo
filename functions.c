@@ -12,7 +12,7 @@ void echo (char * echo_string)
 
 void ls (char * fp)
 {
-	FILE * filepath = fopen(fp, 'r');
+	FILE * filepath = fopen(fp, 'r'); // maybe rewrite this entire fopen() sequence with opendir(), could be more what i am looking for
 	
 	if (filepath == NULL)
 	{
