@@ -1,6 +1,6 @@
 /* NOTES
 
-- later use malloc() or realloc() to rework the memory on the input string to allow for
+- maybe later use malloc() or realloc() or calloc() or whatever to rework the memory on the input string to allow for
 dynamic string size
 - place
 
@@ -9,15 +9,11 @@ dynamic string size
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
-#define OPERATION_SUCCESSFUL 0
-#define OPERATION_FAILED 1
-#define TERMINAL_EXIT 2
+#include "functions.h"
 
 int main()
 {
-char CHAR_INPUT[512] = "";
-char buffer[1024] = "";
+char CHAR_INPUT[1024] = "";
   
 while (1)
   {
@@ -26,7 +22,13 @@ while (1)
     CHAR_INPUT[strlen(CHAR_INPUT) - 1] = '\0';
     
     if (strcmp(CHAR_INPUT, "exit TERMINAL") == 0)
-      break;
+        break;
+    else if (strncmp(CHAR_INPUT, "echo ", 5) == 0)
+    {
+        char buffer[1024] = "";
+        char * echo_string = strncpy(buffer, CHAR_INPUT, 1024)
+        echo(echo_string);
+    }
   }
   exit(TERMINAL_EXIT);
 }
