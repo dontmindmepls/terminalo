@@ -7,8 +7,8 @@
 #ifndef TERMINAL_EXIT
 #define TERMINAL_EXIT 2
 
-void echo (char[] echo_string);
-char[] echo_helper(char[] echo_string);
+char * echo_helper(char echo_string[]);
+void echo(char * echo_string);
 
 #endif
 #endif

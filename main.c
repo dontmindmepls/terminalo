@@ -1,9 +1,7 @@
 /* NOTES
-
 - maybe later use malloc() or realloc() or calloc() or whatever to rework the memory on the input string to allow for
-dynamic string size
+dynamic string size. dunno if it's really worth it since you don't fix what isn't broken but ok whatever i guess
 - place
-
 */
 
 #include <stdio.h>
@@ -13,8 +11,9 @@ dynamic string size
 
 int main()
 {
+    
 char CHAR_INPUT[1024] = "";
-printf("=== TERMINALO - Type 'exit TERMINAL' to exit the terminal. ===\n");
+printf("=== TERMINALO - Type 'EXIT TERM' to exit the terminal. ===\n");
   
 while (1)
   {
@@ -22,19 +21,17 @@ while (1)
     fgets(CHAR_INPUT, sizeof(CHAR_INPUT), stdin);
     CHAR_INPUT[strlen(CHAR_INPUT) - 1] = '\0';
     
-    if (strcmp(CHAR_INPUT, "exit TERMINAL") == 0)
+    if (strcmp(CHAR_INPUT, "EXIT TERM") == 0)
         break;
-    else if (strncmp(CHAR_INPUT, "echo ", 5) == 0)
+    else if (strncmp(CHAR_INPUT, "echo", 4) == 0)
     {
-        char buffer[1024] = "";
-        char * echo_string = strncpy(buffer, CHAR_INPUT, 1024)
-        echo(echo_string);
+        echo(echo_helper(CHAR_INPUT));
     }
   }
   exit(TERMINAL_EXIT);
 }
 
-/* REVIEW
+/* USEFUL REVIEW
 https://pubs.opengroup.org/onlinepubs/009695399/functions/fopen.html
 https://web.eng.fiu.edu/watsonh/EEL2880/FileIO-HW.pdf
 https://stackoverflow.com/questions/985051/what-is-the-purpose-of-fork
@@ -45,4 +42,5 @@ https://www.geeksforgeeks.org/c/concatenating-two-strings-in-c/
 https://www.geeksforgeeks.org/c/c-define-preprocessor/
 https://www.geeksforgeeks.org/c/sprintf-in-c/
 https://www.geeksforgeeks.org/c/fgets-function-in-c/
+https://www.geeksforgeeks.org/c/strcpy-in-c/
 */
