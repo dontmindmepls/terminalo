@@ -14,6 +14,7 @@ dynamic string size
 int main()
 {
 char CHAR_INPUT[1024] = "";
+printf("=== TERMINALO - Type 'exit TERMINAL' to exit the terminal. ===\n");
   
 while (1)
   {
