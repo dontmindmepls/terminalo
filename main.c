@@ -1,32 +1,46 @@
-/* NOTES
-- maybe later use malloc() or realloc() or calloc() or whatever to rework the memory on the input string to allow for
-dynamic string size. dunno if it's really worth it since you don't fix what isn't broken but ok whatever i guess
-- place
-*/
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
+#define WIN32_LEAN_AND_MEAN // side note but the old windows programmers had some great humor lol
+#include <windows.h>
+
 #include "functions.h"
 
 int main()
 {
     
 char CHAR_INPUT[1024] = "";
-printf("=== TERMINALO - Type 'EXIT TERM' to exit the terminal. ===\n");
-  
+printf("===== TERMINALO - Type 'exit' to exit the terminal. =====\n");
+
+char workingdir[1024] = "";
+
+// char user[] = "";
+
 while (1)
   {
     printf("user $ ");
     fgets(CHAR_INPUT, sizeof(CHAR_INPUT), stdin);
     CHAR_INPUT[strlen(CHAR_INPUT) - 1] = '\0';
     
-    if (strcmp(CHAR_INPUT, "EXIT TERM") == 0)
+    if (strcmp(CHAR_INPUT, "exit") == 0) // done
         break;
-    else if (strncmp(CHAR_INPUT, "echo", 4) == 0)
+        
+    else if (strncmp(CHAR_INPUT, "echo", 4) == 0) // done
     {
         echo(echo_helper(CHAR_INPUT));
     }
+    
+    else if (strncmp(CHAR_INPUT, "pwd", 3) == 0) // unfinished 
+    {
+        pwd();
+    }
+    
+    else if (strncmp(CHAR_INPUT, "touch", 5) == 0) // unfinished
+    {
+        touch(CHAR_INPUT);
+    }
+    
   }
   exit(TERMINAL_EXIT);
 }
@@ -43,4 +57,15 @@ https://www.geeksforgeeks.org/c/c-define-preprocessor/
 https://www.geeksforgeeks.org/c/sprintf-in-c/
 https://www.geeksforgeeks.org/c/fgets-function-in-c/
 https://www.geeksforgeeks.org/c/strcpy-in-c/
+https://courses.cs.washington.edu/courses/cse374/20au/lectures/12-structs-in-c/12-structs-in-c.pdf
+https://www.open-std.org/jtc1/sc22/WG14/www/docs/n3054.pdf
+
+basic linux commands to be replicated (will add more as i finish more)
+===
+- exit
+- echo
+- pwd
+- touch
+
+
 */

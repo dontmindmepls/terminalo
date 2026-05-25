@@ -2,6 +2,9 @@
 #include <stdlib.h>
 #include <string.h>
 
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+
 // to be debugged...
 
 char * echo_helper(char echo_string[])
@@ -9,6 +12,7 @@ char * echo_helper(char echo_string[])
     char workwith[1024] = "";
     
     char * token = strtok(echo_string, " ");
+    token = strtok(NULL, " "); 
     
     while (token != NULL)
     {
@@ -29,6 +33,29 @@ void echo(char * echo_string_pointer)
 {
     printf("%s\n\n", echo_string_pointer);
     free(echo_string_pointer);
+}
+
+void pwd()
+{
+    printf("This is a placeholder function that does not actually do anything yet");
+}
+
+void touch(char input_string[])
+{
+    char workwith[1024] = "";
+    
+    char * token = strtok(input_string, " ");
+    token = strtok("NULL", " ");
+    
+    while (token != NULL)
+    {
+        strcat(workwith, token);
+        strcat(workwith, " ");
+        
+        token = (NULL, " ");
+    }
+    
+    
 }
 
 /* NOTES
